@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRESQL_HOST:localhost}:${POSTGRESQL_PORT:5432}/${POSTGRESQL_DATABASE:books_app_db}
+    driver-class-name: org.postgresql.Driver
+    username: ${POSTGRESQL_USER:postgres}
+    password: ${POSTGRESQL_PASSWORD:postgres}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  graphql:
+    graphiql:
+      enabled: true
+  sql:
+    init:
+      mode: never

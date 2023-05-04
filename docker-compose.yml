@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  books_app:
+    depends_on:
+      - books_app_db
+    build:
+      context: .
+    environment:
+      POSTGRESQL_HOST: books_app_db
+      POSTGRESQL_PORT: 5432
+      POSTGRESQL_DATABASE: books_app_db
+      POSTGRESQL_USER: postgres
+      POSTGRESQL_PASSWORD: postgres
+    ports:
+      - '8080:8080'
+    expose:
+      - '8080'
+    restart: always
+  books_app_db:
+    image: postgres:15.1
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: books_app_db
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    ports:
+      - '5432:5432'
+    expose:
+      - '5432'
