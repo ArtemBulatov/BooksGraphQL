@@ -1,9 +1,9 @@
-package my.graphql.project.service;
+package my.project.service;
 
 import lombok.RequiredArgsConstructor;
-import my.graphql.project.entity.Author;
-import my.graphql.project.entity.Book;
-import my.graphql.project.repository.BookRepository;
+import my.project.entity.Author;
+import my.project.entity.Book;
+import my.project.repository.BookRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +12,7 @@ import java.util.List;
 @Service
 public class BookService {
     private final BookRepository bookRepository;
+    private final BookStoreGRPC storeGRPC;
 
     public List<Book> getAllBooks() {
         return bookRepository.findAll();
@@ -37,6 +38,7 @@ public class BookService {
     private Book create(String title) {
         Book book = new Book();
         book.setTitle(title);
+        storeGRPC.saveBook(book);
         return bookRepository.save(book);
     }
 }

@@ -1,6 +1,6 @@
-package my.graphql.project.repository;
+package my.project.repository;
 
-import my.graphql.project.entity.Book;
+import my.project.entity.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

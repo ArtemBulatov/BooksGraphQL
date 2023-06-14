@@ -1,0 +1,14 @@
+syntax = "proto3";
+package my.grpc.proto;
+
+message BookRequest {
+  string name = 1;
+}
+
+message BookResponse {
+  string externalId = 1;
+}
+
+service BookService {
+  rpc saveBook(BookRequest) returns (BookResponse);
+}

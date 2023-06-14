@@ -1,4 +1,4 @@
-package my.graphql.project.entity;
+package my.project.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -6,15 +6,14 @@ import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.GenericGenerator;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "books")
-public class Book {
+@Table(name = "authors")
+public class Author {
 
     @Id
     @GeneratedValue(generator = "UUID")
@@ -23,12 +22,12 @@ public class Book {
     UUID id;
 
     @Column(unique = true, nullable = false)
-    String title;
+    String name;
 
     @ManyToMany
     @JoinTable(
             name = "books_and_authors",
-            joinColumns = @JoinColumn(name = "book_id"),
-            inverseJoinColumns = @JoinColumn(name = "author_id"))
-    List<Author> authors;
+            joinColumns = @JoinColumn(name = "author_id"),
+            inverseJoinColumns = @JoinColumn(name = "book_id"))
+    List<Book> books;
 }

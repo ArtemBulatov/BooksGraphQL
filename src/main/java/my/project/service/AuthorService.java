@@ -1,9 +1,9 @@
-package my.graphql.project.service;
+package my.project.service;
 
 import lombok.RequiredArgsConstructor;
-import my.graphql.project.entity.Author;
-import my.graphql.project.entity.Book;
-import my.graphql.project.repository.AuthorRepository;
+import my.project.entity.Author;
+import my.project.entity.Book;
+import my.project.repository.AuthorRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

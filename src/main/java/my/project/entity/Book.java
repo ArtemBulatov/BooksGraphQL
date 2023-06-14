@@ -1,4 +1,4 @@
-package my.graphql.project.entity;
+package my.project.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -12,8 +12,8 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table(name = "authors")
-public class Author {
+@Table(name = "books")
+public class Book {
 
     @Id
     @GeneratedValue(generator = "UUID")
@@ -22,12 +22,14 @@ public class Author {
     UUID id;
 
     @Column(unique = true, nullable = false)
-    String name;
+    String title;
 
     @ManyToMany
     @JoinTable(
             name = "books_and_authors",
-            joinColumns = @JoinColumn(name = "author_id"),
-            inverseJoinColumns = @JoinColumn(name = "book_id"))
-    List<Book> books;
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "author_id"))
+    List<Author> authors;
+
+    UUID externalId;
 }

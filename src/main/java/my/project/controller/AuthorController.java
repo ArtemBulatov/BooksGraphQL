@@ -1,10 +1,10 @@
-package my.graphql.project.controller;
+package my.project.controller;
 
 import lombok.RequiredArgsConstructor;
-import my.graphql.project.entity.Author;
-import my.graphql.project.entity.Book;
-import my.graphql.project.service.AuthorService;
-import my.graphql.project.service.BookService;
+import my.project.entity.Author;
+import my.project.entity.Book;
+import my.project.service.AuthorService;
+import my.project.service.BookService;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
