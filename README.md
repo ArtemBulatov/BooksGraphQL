@@ -6,6 +6,7 @@
 2. JDK 17
 3. PostgreSQL 15.1
 4. Docker 4.17.0
+5. Сервис https://github.com/ArtemBulatov/BooksStore
 
 ### Сборка
 Чтобы собрать проект, нужно выполнить в корне проекта команду "mvn install".
